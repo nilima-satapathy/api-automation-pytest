@@ -7,7 +7,7 @@ Goal: Maintainable API test automation (Python + Pytest) for SDET / AI Test port
 |-----------|--------|--------|------|---------|
 | M1 | Structure + `ApiClient` + 3 GET tests | ✅ Done | 2026-07-12 | `milestone-1` |
 | M2 | Shared fixtures (`base_url`, `headers`, `api_client`) | ✅ Done | 2026-07-12 | `milestone-2` |
-| M3 | Full GET coverage + parametrize | ⬜ Pending | | |
+| M3 | Full GET coverage + parametrize | ✅ Done | 2026-07-12 | `milestone-3` |
 | M4 | POST / PUT / DELETE + payloads | ⬜ Pending | | |
 | M5 | Schema validation | ⬜ Pending | | |
 | M6 | Negative tests | ⬜ Pending | | |
@@ -48,3 +48,10 @@ git push origin main --tags
 - Tests only assert; fixture creates/closes client
 - Optional override: env var `API_BASE_URL`
 - Learning: Pytest fixtures = shared setup (like test preconditions in one place)
+
+### M3 — Full GET + parametrize
+- Expanded GET coverage: users, posts, comments, todos, albums
+- Nested routes: `/users/{id}/posts`, `/posts/{id}/comments`
+- Query filters: `?userId=`, `?postId=`
+- `@pytest.mark.parametrize` turns one function into many cases (33 tests total)
+- Learning: same assertions + different data = data-driven tests (no copy-paste)

@@ -1,7 +1,7 @@
 # API Automation Framework (Pytest)
 
 [![Project](https://img.shields.io/badge/Project-01-1F4E79)](https://github.com/satnil2608-glitch/ai-career-journey)
-[![Milestones](https://img.shields.io/badge/Milestones-M1%20%7C%20M2%20done-2ea44f)](./MILESTONES.md)
+[![Milestones](https://img.shields.io/badge/Milestones-M1%20%7C%20M2%20%7C%20M3%20done-2ea44f)](./MILESTONES.md)
 [![Python](https://img.shields.io/badge/Python-3.11+-blue)](https://www.python.org/)
 [![Pytest](https://img.shields.io/badge/Pytest-9-yellow)](https://pytest.org/)
 
@@ -12,8 +12,8 @@ Part of my AI / SDET transition portfolio → **[ai-career-journey](https://gith
 | | |
 |--|--|
 | **Target API** | [JSONPlaceholder](https://jsonplaceholder.typicode.com) (free, no auth) |
-| **Status** | Milestone 2 complete — fixtures + 3 GET tests green |
-| **Next** | Milestone 3 — more GET coverage + parametrize |
+| **Status** | Milestone 3 complete — 33 GET tests (parametrize) green |
+| **Next** | Milestone 4 — POST / PUT / DELETE + payloads |
 
 ---
 
@@ -59,7 +59,7 @@ api-automation-pytest/
 ├── pytest.ini
 ├── tests/
 │   ├── conftest.py          # fixtures: base_url, headers, api_client
-│   └── test_users_get.py    # GET tests
+│   └── test_users_get.py    # GET tests (parametrize → 33 cases)
 ├── utils/
 │   └── api_client.py        # HTTP helper
 └── data/
@@ -77,8 +77,8 @@ See **[MILESTONES.md](./MILESTONES.md)** for the full checklist and how I tag ea
 |---|-----------|--------|
 | 1 | Structure + api_client + 3 GET tests | ✅ Done |
 | 2 | Fixtures in conftest | ✅ Done |
-| 3 | Full GET + parametrize | ⬜ Next |
-| 4 | POST/PUT/DELETE | ⬜ |
+| 3 | Full GET + parametrize | ✅ Done (33 tests) |
+| 4 | POST/PUT/DELETE | ⬜ Next |
 | 5 | Schema validation | ⬜ |
 | 6 | Negative tests | ⬜ |
 | 7 | pytest-html + GitHub Actions | ⬜ |
@@ -91,3 +91,4 @@ See **[MILESTONES.md](./MILESTONES.md)** for the full checklist and how I tag ea
 1. **ApiClient** keeps base URL, headers, and timeout in one place (DRY).
 2. **Fixtures** separate setup/teardown from assertions.
 3. Assert on **status + body shape + business rules**, not status alone.
+4. **Parametrize** = one test body, many data rows (data-driven; scales without copy-paste).
