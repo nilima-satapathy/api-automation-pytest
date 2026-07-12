@@ -12,7 +12,7 @@ Goal: Maintainable API test automation (Python + Pytest) for SDET / AI Test port
 | M5 | Schema validation | ✅ Done | 2026-07-12 | `milestone-5` |
 | M6 | Negative tests | ✅ Done | 2026-07-12 | `milestone-6` |
 | M7 | pytest-html + GitHub Actions CI | ✅ Done | 2026-07-12 | `milestone-7` |
-| M8 | README polish + portfolio screenshots | ⬜ Pending | | |
+| M8 | README polish + portfolio screenshots | ✅ Done | 2026-07-12 | `milestone-8` |
 
 ---
 
@@ -82,3 +82,9 @@ git push origin main --tags
 - Uploads `reports/report.html` as a CI artifact (available even if tests fail)
 - `.gitignore` ignores `reports/`, `.venv/`, caches
 - Learning: CI = tests run on GitHub without opening your laptop; report = shareable proof
+
+### M8 — README polish + portfolio assets
+- Recruiter-ready README: quick start, features table, interview points, design choices
+- Portfolio diagrams in `docs/assets/` (architecture, sample run, CI flow) — SVG for crisp text
+- Project marked complete (M1–M8); suite **77** tests + green CI badge
+- Learning: README is the product page for your code — structure, proof, and how to run

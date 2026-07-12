@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-label="API automation architecture">
+  <rect width="920" height="420" fill="#0f172a"/>
+  <text x="32" y="40" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">API Automation Framework — Architecture</text>
+  <text x="32" y="64" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="13">tests → fixtures → ApiClient → public REST API · schemas &amp; payloads on the side</text>
+
+  <!-- Tests -->
+  <rect x="40" y="100" width="180" height="200" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <text x="130" y="130" text-anchor="middle" fill="#38bdf8" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">tests/</text>
+  <text x="56" y="160" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">test_users_get</text>
+  <text x="56" y="182" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">test_users_write</text>
+  <text x="56" y="204" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">test_schema_…</text>
+  <text x="56" y="226" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">test_negative</text>
+  <text x="56" y="260" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">77 cases · parametrize</text>
+  <text x="56" y="280" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">happy + negative paths</text>
+
+  <!-- Fixtures -->
+  <rect x="260" y="130" width="160" height="140" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+  <text x="340" y="160" text-anchor="middle" fill="#a78bfa" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">conftest.py</text>
+  <text x="276" y="190" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">base_url</text>
+  <text x="276" y="212" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">default_headers</text>
+  <text x="276" y="234" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">api_client</text>
+
+  <!-- ApiClient -->
+  <rect x="460" y="130" width="170" height="140" rx="12" fill="#1e293b" stroke="#34d399" stroke-width="2"/>
+  <text x="545" y="160" text-anchor="middle" fill="#34d399" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">ApiClient</text>
+  <text x="476" y="190" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">GET POST PUT</text>
+  <text x="476" y="212" fill="#e2e8f0" font-family="Consolas, monospace" font-size="12">PATCH DELETE</text>
+  <text x="476" y="234" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">session · timeout</text>
+
+  <!-- API -->
+  <rect x="680" y="130" width="200" height="140" rx="12" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="780" y="165" text-anchor="middle" fill="#fbbf24" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">JSONPlaceholder</text>
+  <text x="700" y="200" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="12">Public demo REST API</text>
+  <text x="700" y="222" fill="#94a3b8" font-family="Consolas, monospace" font-size="11">/users /posts /todos…</text>
+  <text x="700" y="244" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">no auth required</text>
+
+  <!-- Arrows -->
+  <path d="M220 200 H255" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M420 200 H455" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M630 200 H675" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Data boxes -->
+  <rect x="260" y="320" width="180" height="70" rx="10" fill="#1e293b" stroke="#fb7185" stroke-width="2"/>
+  <text x="350" y="348" text-anchor="middle" fill="#fb7185" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">data/payloads/</text>
+  <text x="350" y="370" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">JSON bodies for POST/PUT</text>
+
+  <rect x="480" y="320" width="180" height="70" rx="10" fill="#1e293b" stroke="#2dd4bf" stroke-width="2"/>
+  <text x="570" y="348" text-anchor="middle" fill="#2dd4bf" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">data/schemas/</text>
+  <text x="570" y="370" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">JSON Schema contracts</text>
+
+  <path d="M130 300 V355 H250" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M130 300 V355 H470" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- CI note -->
+  <rect x="700" y="320" width="180" height="70" rx="10" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+  <text x="790" y="348" text-anchor="middle" fill="#60a5fa" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">GitHub Actions</text>
+  <text x="790" y="370" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">CI + HTML artifact</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
