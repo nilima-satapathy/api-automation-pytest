@@ -9,7 +9,7 @@ Goal: Maintainable API test automation (Python + Pytest) for SDET / AI Test port
 | M2 | Shared fixtures (`base_url`, `headers`, `api_client`) | ✅ Done | 2026-07-12 | `milestone-2` |
 | M3 | Full GET coverage + parametrize | ✅ Done | 2026-07-12 | `milestone-3` |
 | M4 | POST / PUT / DELETE + payloads | ✅ Done | 2026-07-12 | `milestone-4` |
-| M5 | Schema validation | ⬜ Pending | | |
+| M5 | Schema validation | ✅ Done | 2026-07-12 | `milestone-5` |
 | M6 | Negative tests | ⬜ Pending | | |
 | M7 | pytest-html + GitHub Actions CI | ⬜ Pending | | |
 | M8 | README polish + portfolio screenshots | ⬜ Pending | | |
@@ -62,3 +62,10 @@ git push origin main --tags
 - `utils/payload_loader.py` loads JSON files
 - Write tests in `tests/test_users_write.py` (12 cases) → **45 tests total**
 - Learning: CRUD = Create / Read / Update / Delete; keep data separate from code
+
+### M5 — Schema validation
+- JSON Schemas in `data/schemas/` (user, post, comment, todo, album + list shapes)
+- `utils/schema_loader.py`: `load_schema` + `validate_schema` (jsonschema Draft 7)
+- `tests/test_schema_validation.py` — 12 cases; suite total **57 tests**
+- Dependency: `jsonschema>=4.20.0`
+- Learning: status code ≠ contract; schemas catch missing fields / wrong types

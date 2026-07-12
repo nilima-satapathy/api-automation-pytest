@@ -1,7 +1,7 @@
 # API Automation Framework (Pytest)
 
 [![Project](https://img.shields.io/badge/Project-01-1F4E79)](https://github.com/nilima-satapathy/ai-career-journey)
-[![Milestones](https://img.shields.io/badge/Milestones-M1–M4%20done-2ea44f)](./MILESTONES.md)
+[![Milestones](https://img.shields.io/badge/Milestones-M1–M5%20done-2ea44f)](./MILESTONES.md)
 [![Python](https://img.shields.io/badge/Python-3.11+-blue)](https://www.python.org/)
 [![Pytest](https://img.shields.io/badge/Pytest-9-yellow)](https://pytest.org/)
 
@@ -12,14 +12,14 @@ Part of my AI / SDET transition portfolio → **[ai-career-journey](https://gith
 | | |
 |--|--|
 | **Target API** | [JSONPlaceholder](https://jsonplaceholder.typicode.com) (free, no auth) |
-| **Status** | Milestone 4 complete — 45 tests (GET + write ops) green |
-| **Next** | Milestone 5 — schema validation |
+| **Status** | Milestone 5 complete — 57 tests (schema validation) green |
+| **Next** | Milestone 6 — negative tests |
 
 ---
 
 ## Why this project
 
-Shows SDET fundamentals: reusable client, fixtures, data-driven tests, write ops with payloads, and (soon) CI.  
+Shows SDET fundamentals: reusable client, fixtures, data-driven tests, write ops with payloads, JSON Schema contracts, and (soon) CI.  
 Builds the base for later **LLM API testing** in my AI Test Engineer path.
 
 ---
@@ -59,13 +59,15 @@ api-automation-pytest/
 ├── pytest.ini
 ├── tests/
 │   ├── conftest.py            # fixtures: base_url, headers, api_client
-│   ├── test_users_get.py      # GET tests (parametrize → 33 cases)
-│   └── test_users_write.py    # POST/PUT/PATCH/DELETE (12 cases)
+│   ├── test_users_get.py      # GET tests (parametrize)
+│   ├── test_users_write.py    # POST/PUT/PATCH/DELETE
+│   └── test_schema_validation.py  # JSON Schema contract checks
 ├── utils/
 │   ├── api_client.py          # HTTP helper (GET + write methods)
-│   └── payload_loader.py      # load JSON from data/payloads/
+│   ├── payload_loader.py      # load JSON from data/payloads/
+│   └── schema_loader.py       # load + validate JSON Schema
 └── data/
-    ├── schemas/               # M5
+    ├── schemas/               # response contracts (M5)
     └── payloads/              # request bodies for write tests
 ```
 
@@ -79,10 +81,10 @@ See **[MILESTONES.md](./MILESTONES.md)** for the full checklist and how I tag ea
 |---|-----------|--------|
 | 1 | Structure + api_client + 3 GET tests | ✅ Done |
 | 2 | Fixtures in conftest | ✅ Done |
-| 3 | Full GET + parametrize | ✅ Done (33 GET tests) |
-| 4 | POST/PUT/DELETE + payloads | ✅ Done (45 tests total) |
-| 5 | Schema validation | ⬜ Next |
-| 6 | Negative tests | ⬜ |
+| 3 | Full GET + parametrize | ✅ Done |
+| 4 | POST/PUT/DELETE + payloads | ✅ Done |
+| 5 | Schema validation | ✅ Done (57 tests total) |
+| 6 | Negative tests | ⬜ Next |
 | 7 | pytest-html + GitHub Actions | ⬜ |
 | 8 | README polish | ⬜ |
 
@@ -94,4 +96,5 @@ See **[MILESTONES.md](./MILESTONES.md)** for the full checklist and how I tag ea
 2. **Fixtures** separate setup/teardown from assertions.
 3. Assert on **status + body shape + business rules**, not status alone.
 4. **Parametrize** = one test body, many data rows (data-driven).
-5. **Payloads in JSON files** keep request data out of test code; easier to maintain and review.
+5. **Payloads in JSON files** keep request data out of test code.
+6. **JSON Schema** = reusable contract; catches missing fields / wrong types early.
