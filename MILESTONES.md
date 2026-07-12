@@ -8,7 +8,7 @@ Goal: Maintainable API test automation (Python + Pytest) for SDET / AI Test port
 | M1 | Structure + `ApiClient` + 3 GET tests | ✅ Done | 2026-07-12 | `milestone-1` |
 | M2 | Shared fixtures (`base_url`, `headers`, `api_client`) | ✅ Done | 2026-07-12 | `milestone-2` |
 | M3 | Full GET coverage + parametrize | ✅ Done | 2026-07-12 | `milestone-3` |
-| M4 | POST / PUT / DELETE + payloads | ⬜ Pending | | |
+| M4 | POST / PUT / DELETE + payloads | ✅ Done | 2026-07-12 | `milestone-4` |
 | M5 | Schema validation | ⬜ Pending | | |
 | M6 | Negative tests | ⬜ Pending | | |
 | M7 | pytest-html + GitHub Actions CI | ⬜ Pending | | |
@@ -30,7 +30,7 @@ git push origin main --tags
 ```
 
 4. Update the central tracker:  
-   https://github.com/satnil2608-glitch/ai-career-journey  
+   https://github.com/nilima-satapathy/ai-career-journey  
    (edit `PROGRESS.md` and tick the box)
 
 ---
@@ -53,5 +53,12 @@ git push origin main --tags
 - Expanded GET coverage: users, posts, comments, todos, albums
 - Nested routes: `/users/{id}/posts`, `/posts/{id}/comments`
 - Query filters: `?userId=`, `?postId=`
-- `@pytest.mark.parametrize` turns one function into many cases (33 tests total)
+- `@pytest.mark.parametrize` turns one function into many cases (33 GET tests)
 - Learning: same assertions + different data = data-driven tests (no copy-paste)
+
+### M4 — POST / PUT / PATCH / DELETE + payloads
+- `ApiClient` methods: `post`, `put`, `patch`, `delete`
+- Request bodies live in `data/payloads/*.json` (not hard-coded in tests)
+- `utils/payload_loader.py` loads JSON files
+- Write tests in `tests/test_users_write.py` (12 cases) → **45 tests total**
+- Learning: CRUD = Create / Read / Update / Delete; keep data separate from code

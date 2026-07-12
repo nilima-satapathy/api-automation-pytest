@@ -1,0 +1,6 @@
+{
+  "id": 1,
+  "title": "Updated title from automation",
+  "body": "Full replace via PUT.",
+  "userId": 1
+}

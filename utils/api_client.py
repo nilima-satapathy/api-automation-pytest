@@ -1,8 +1,8 @@
 """
 Thin HTTP client for API tests.
 
-Milestone 1: GET support + shared session defaults.
-Later milestones will add fixtures, auth headers, and schema helpers.
+M1: GET support + shared session defaults.
+M4: POST / PUT / PATCH / DELETE for write operations.
 """
 
 from __future__ import annotations
@@ -46,6 +46,72 @@ class ApiClient:
     ) -> requests.Response:
         """Send GET request and return the raw Response (assert in tests)."""
         return self.session.get(
+            self._url(path),
+            params=params,
+            timeout=self.timeout,
+            **kwargs,
+        )
+
+    def post(
+        self,
+        path: str,
+        *,
+        json: dict[str, Any] | list[Any] | None = None,
+        params: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> requests.Response:
+        """Send POST (create) with a JSON body."""
+        return self.session.post(
+            self._url(path),
+            json=json,
+            params=params,
+            timeout=self.timeout,
+            **kwargs,
+        )
+
+    def put(
+        self,
+        path: str,
+        *,
+        json: dict[str, Any] | list[Any] | None = None,
+        params: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> requests.Response:
+        """Send PUT (full replace/update) with a JSON body."""
+        return self.session.put(
+            self._url(path),
+            json=json,
+            params=params,
+            timeout=self.timeout,
+            **kwargs,
+        )
+
+    def patch(
+        self,
+        path: str,
+        *,
+        json: dict[str, Any] | list[Any] | None = None,
+        params: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> requests.Response:
+        """Send PATCH (partial update) with a JSON body."""
+        return self.session.patch(
+            self._url(path),
+            json=json,
+            params=params,
+            timeout=self.timeout,
+            **kwargs,
+        )
+
+    def delete(
+        self,
+        path: str,
+        *,
+        params: dict[str, Any] | None = None,
+        **kwargs: Any,
+    ) -> requests.Response:
+        """Send DELETE (remove resource)."""
+        return self.session.delete(
             self._url(path),
             params=params,
             timeout=self.timeout,
