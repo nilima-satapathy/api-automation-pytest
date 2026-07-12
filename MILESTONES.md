@@ -11,7 +11,7 @@ Goal: Maintainable API test automation (Python + Pytest) for SDET / AI Test port
 | M4 | POST / PUT / DELETE + payloads | ✅ Done | 2026-07-12 | `milestone-4` |
 | M5 | Schema validation | ✅ Done | 2026-07-12 | `milestone-5` |
 | M6 | Negative tests | ✅ Done | 2026-07-12 | `milestone-6` |
-| M7 | pytest-html + GitHub Actions CI | ⬜ Pending | | |
+| M7 | pytest-html + GitHub Actions CI | ✅ Done | 2026-07-12 | `milestone-7` |
 | M8 | README polish + portfolio screenshots | ⬜ Pending | | |
 
 ---
@@ -75,3 +75,10 @@ git push origin main --tags
 - Distinguishes **404 (missing resource)** vs **200 + [] (valid query, no rows)**
 - Documents JSONPlaceholder quirks (PUT unknown → 500, empty POST still 201)
 - Learning: real quality = happy path + unhappy path; lock the contract you observe
+
+### M7 — pytest-html + GitHub Actions CI
+- Dependency: `pytest-html` — local report: `pytest --html=reports/report.html --self-contained-html`
+- Workflow: `.github/workflows/ci.yml` runs suite on push/PR to `main`
+- Uploads `reports/report.html` as a CI artifact (available even if tests fail)
+- `.gitignore` ignores `reports/`, `.venv/`, caches
+- Learning: CI = tests run on GitHub without opening your laptop; report = shareable proof

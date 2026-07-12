@@ -1,4 +1,4 @@
-# Virtual environment
+# Virtual env
 .venv/
 venv/
 env/
@@ -12,18 +12,11 @@ __pycache__/
 dist/
 build/
 
-# Pytest / coverage / reports
+# Pytest / coverage
 .pytest_cache/
 .coverage
 htmlcov/
-report.html
 reports/
-*.log
-
-# Environment secrets (never commit API keys)
-.env
-.env.*
-!.env.example
 
 # IDE / OS
 .idea/
