@@ -10,7 +10,7 @@ Goal: Maintainable API test automation (Python + Pytest) for SDET / AI Test port
 | M3 | Full GET coverage + parametrize | ✅ Done | 2026-07-12 | `milestone-3` |
 | M4 | POST / PUT / DELETE + payloads | ✅ Done | 2026-07-12 | `milestone-4` |
 | M5 | Schema validation | ✅ Done | 2026-07-12 | `milestone-5` |
-| M6 | Negative tests | ⬜ Pending | | |
+| M6 | Negative tests | ✅ Done | 2026-07-12 | `milestone-6` |
 | M7 | pytest-html + GitHub Actions CI | ⬜ Pending | | |
 | M8 | README polish + portfolio screenshots | ⬜ Pending | | |
 
@@ -69,3 +69,9 @@ git push origin main --tags
 - `tests/test_schema_validation.py` — 12 cases; suite total **57 tests**
 - Dependency: `jsonschema>=4.20.0`
 - Learning: status code ≠ contract; schemas catch missing fields / wrong types
+
+### M6 — Negative tests
+- `tests/test_negative.py` — 404s, empty filters, nested missing parents, write edge cases
+- Distinguishes **404 (missing resource)** vs **200 + [] (valid query, no rows)**
+- Documents JSONPlaceholder quirks (PUT unknown → 500, empty POST still 201)
+- Learning: real quality = happy path + unhappy path; lock the contract you observe
