@@ -1,0 +1,33 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Pytest / coverage / reports
+.pytest_cache/
+.coverage
+htmlcov/
+report.html
+reports/
+*.log
+
+# Environment secrets (never commit API keys)
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
